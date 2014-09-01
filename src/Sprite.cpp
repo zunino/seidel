@@ -7,7 +7,8 @@
 namespace Seidel {
 
     Sprite::Sprite(const Texture& texture, int x, int y, int fx, int fy, int fw, int fh, int fcounth, int fcountv)
-            : texture(texture), fwidth(fw), fheight(fh), fcounth(fcounth), fcountv(fcountv), speed(0.0f) {
+            : texture(texture), fwidth(fw), fheight(fh), fcounth(fcounth), fcountv(fcountv), speed(0.0f),
+              keyStates(SDL_GetKeyboardState(nullptr)) {
         std::clog << "Sprite(...)\n";
 
         src.x = fx;

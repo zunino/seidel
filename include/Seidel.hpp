@@ -8,5 +8,6 @@
 #include "Window.hpp"
 #include "Texture.hpp"
 #include "Sprite.hpp"
+#include "Clock.hpp"
 
 #endif

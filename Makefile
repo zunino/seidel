@@ -2,7 +2,7 @@ CC      = g++
 CFLAGS  = -std=c++1y -c -Wall -g -I/usr/include/SDL2 -D_REENTRANT -I./include
 LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lSDL2 -lSDL2_image -lSDL2_ttf
 
-UNITS      = Seidel SDLError SDL Window Texture Sprite
+UNITS      = Seidel SDLError SDL Window Texture Sprite Clock
 TEST_UNITS = sample
 
 SRC      := $(addsuffix .cpp, $(addprefix src/, $(UNITS)))

@@ -35,6 +35,8 @@ namespace Seidel {
 
             SDL_Rect src;
             SDL_Rect dst;
+
+            const Uint8* keyStates; // Pointer to SDL array with information about the state of keys
     };
 
 }
