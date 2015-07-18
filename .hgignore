@@ -1,4 +1,3 @@
 syntax: regexp
 ^bin$
 ^bin-test$
-Seidel.geany
