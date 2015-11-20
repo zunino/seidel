@@ -1,3 +1,10 @@
+/*
+ * Window.hpp
+ *
+*  Created on: Aug 31, 2014
+ *      Author: Andre Zunino <neyzunino@gmail.com>
+ */
+
 #ifndef SEIDEL_WINDOW_HPP
 #define SEIDEL_WINDOW_HPP
 
@@ -5,7 +12,7 @@
 
 #include "SDLError.hpp"
 
-namespace Seidel {
+namespace sdl {
 
     class Window {
 
@@ -24,6 +31,6 @@ namespace Seidel {
 
     };
 
-}
+} /* namespace sdl */
 
 #endif

@@ -1,19 +1,23 @@
-#include <iostream>
+/*
+ * SDL.cpp
+ *
+ *  Created on: Aug 31, 2014
+ * Modified on: Aug 3, 2015
+ *      Author: Andre Zunino <neyzunino@gmail.com>
+ */
 
 #include "SDL.hpp"
 
-namespace Seidel {
+namespace sdl {
 
-    SDL::SDL(Uint32 flags) throw (SDLError) {
-        std::clog << "SDL(Uint32)\n";
-        if (SDL_Init(flags) != 0) {
-            throw SDLError();
-        }
+SDL::SDL(Uint32 flags) throw (SDLError) {
+    if (SDL_Init(flags) != 0) {
+        throw SDLError();
     }
+}
 
-    SDL::~SDL() {
-        std::clog << "~SDL()\n";
-        SDL_Quit();
-    }
+SDL::~SDL() {
+    SDL_Quit();
+}
 
 }

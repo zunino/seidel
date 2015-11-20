@@ -1,6 +1,6 @@
 LIB_DESC   = Seidel - Simple SDL Wrapper
 LIB_NAME   = seidel
-LIB_VER    = 0.1
+LIB_VER    = 0.2
 LIB_FILE   = bin/$(LIB_NAME)-$(LIB_VER).a
 
 CC         = g++
@@ -43,6 +43,4 @@ clean:
 	rm -f bin/*.o
 	rm -f bin/*.a
 	rm -f bin-test/*.o
-	rm -f src/*.o
-	rm -f src-test/*.o
 	rm -f ./sample
