@@ -37,7 +37,7 @@ Window::~Window() {
 }
 
 SDL_Renderer* Window::renderer() throw (SDLError) {
-    return renderer(SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    return renderer(0);
 }
 
 SDL_Renderer* Window::renderer(Uint32 flags) throw (SDLError) {
@@ -48,6 +48,14 @@ SDL_Renderer* Window::renderer(Uint32 flags) throw (SDLError) {
         }
     }
     return sdlRenderer;
+}
+
+void Window::clear(const SDL_Color& color) {
+    SDL_Color curr;
+    SDL_GetRenderDrawColor(renderer(), &curr.r, &curr.g, &curr.b, &curr.a);
+    SDL_SetRenderDrawColor(renderer(), color.r, color.g, color.b, color.a);
+    SDL_RenderClear(renderer());
+    SDL_SetRenderDrawColor(renderer(), curr.r, curr.g, curr.b, curr.a);
 }
 
 } /* namespace sdl */
