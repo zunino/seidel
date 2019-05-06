@@ -12,32 +12,32 @@ namespace {
 }
 
 class Toon {
-public:
-    Toon(sdl::Clock& clock, sdl::Sprite&& sprite) : x{0}, y{0}, z{1.0f}, clock{clock}, sprite{sprite} {}
-    std::tuple<float, float> position() const { return std::make_tuple(x, y); }
-    void setPosition(float x, float y) { this->x = x; this->y = y; update(); }
-    void update() {
-        sprite.update(clock.frameDuration(), x, y);
-        z += zDelta;
-        if (z > MAX_Z) {
-            z = MAX_Z;
-            zDelta = -zDelta;
-        } else if (z < MIN_Z) {
-            z = MIN_Z;
-            zDelta = -zDelta;
+    public:
+        Toon(sdl::Clock& clock, sdl::Sprite&& sprite) : x{0}, y{0}, z{1.0f}, clock{clock}, sprite{sprite} {}
+        std::tuple<float, float> position() const { return std::make_tuple(x, y); }
+        void setPosition(float x, float y) { this->x = x; this->y = y; update(); }
+        void update() {
+            sprite.update(clock.frameDuration(), x, y);
+            z += zDelta;
+            if (z > MAX_Z) {
+                z = MAX_Z;
+                zDelta = -zDelta;
+            } else if (z < MIN_Z) {
+                z = MIN_Z;
+                zDelta = -zDelta;
+            }
+            sprite.zoom(z);
         }
-        sprite.zoom(z);
-    }
-    void draw() const { sprite.draw(); }
-private:
-    static constexpr float MIN_Z = 0.5f;
-    static constexpr float MAX_Z = 1.5f;
-    static float zDelta;
-    float x;
-    float y;
-    float z; // 2D emulation of move along the z-axis (close and away from the camera)
-    sdl::Clock& clock;
-    sdl::Sprite sprite;
+        void draw() const { sprite.draw(); }
+    private:
+        static constexpr float MIN_Z = 0.5f;
+        static constexpr float MAX_Z = 1.5f;
+        static float zDelta;
+        float x;
+        float y;
+        float z; // 2D emulation of move along the z-axis (close and away from the camera)
+        sdl::Clock& clock;
+        sdl::Sprite sprite;
 };
 
 float Toon::zDelta = 0.005f;

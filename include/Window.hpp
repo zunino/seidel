@@ -1,8 +1,8 @@
 /*
  * Window.hpp
  *
-*  Created on: Aug 31, 2014
- *      Author: Andre Zunino <neyzunino@gmail.com>
+*  Created: Aug 31, 2014
+ * Author:  Andre Zunino <neyzunino@gmail.com>
  */
 
 #ifndef SEIDEL_WINDOW_HPP
@@ -10,20 +10,18 @@
 
 #include <SDL.h>
 
-#include "SDLError.hpp"
-
 namespace sdl {
 
     class Window {
 
         public:
-            Window(const char* title, int w, int h) throw (SDLError);
-            Window(const char* title, int w, int h, Uint32 flags) throw (SDLError);
-            Window(const char* title, int x, int y, int w, int h, Uint32 flags) throw (SDLError);
+            Window(const char* title, int w, int h);
+            Window(const char* title, int w, int h, Uint32 flags);
+            Window(const char* title, int x, int y, int w, int h, Uint32 flags);
             virtual ~Window();
 
-            SDL_Renderer* renderer() throw (SDLError);
-            SDL_Renderer* renderer(Uint32 flags) throw (SDLError);
+            SDL_Renderer* renderer();
+            SDL_Renderer* renderer(Uint32 flags);
 
             void clear(const SDL_Color& color = {0, 0, 0, 255});
 

@@ -1,10 +1,10 @@
 LIB_DESC   = Seidel - Simple SDL Wrapper
 LIB_NAME   = seidel
-LIB_VER    = 0.2
+LIB_VER    = 0.2.1
 LIB_FILE   = bin/$(LIB_NAME)-$(LIB_VER).a
 
 CC         = g++
-CFLAGS     = -std=c++1y -c -Wall -g -I/usr/include/SDL2 -D_REENTRANT -I./include
+CFLAGS     = -std=c++1z -c -Wall -g -I/usr/include/SDL2 -D_REENTRANT -I./include
 LDFLAGS    = -L/usr/lib/x86_64-linux-gnu -lSDL2 -lSDL2_image -lSDL2_ttf
 
 UNITS      = Seidel SDLError SDL Window Texture Sprite Clock
@@ -34,10 +34,11 @@ setup:
 	@mkdir -p bin bin-test 2> /dev/null
 
 debug:
-	@echo $(SRC)
-	@echo $(SRC_TEST)
-	@echo $(OBJ)
-	@echo $(OBJ_TEST)
+	@echo "SRC:      $(SRC)"
+	@echo "SRC_TEST: $(SRC_TEST)"
+	@echo "OBJ:      $(OBJ)"
+	@echo "OBJ_TEST: $(OBJ_TEST)"
+	@echo "LIB_FILE: $(LIB_FILE)"
 
 clean:
 	rm -f bin/*.o
