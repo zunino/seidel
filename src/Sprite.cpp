@@ -18,8 +18,12 @@ namespace sdl {
     Sprite::Sprite(Texture& texture, int tx, int ty, int fw, int fh, int fcount, float fps, int initialFrame)
         : texture{texture}, zoomFactor{1.0f} {
         animationName = Animation::DEFAULT_ANIMATION_NAME;
-        animations.insert(make_pair(animationName, Animation {animationName, tx, ty, fw, fh, fcount, fps,
-                Animation::Type::CYCLIC, initialFrame}));
+        animations.insert(
+            make_pair(
+                animationName,
+                Animation {animationName, tx, ty, fw, fh, fcount, fps, Animation::Type::CYCLIC, initialFrame}
+            )
+        );
         src.x = tx;
         src.y = ty;
         src.w = fw;
