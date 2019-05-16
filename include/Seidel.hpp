@@ -1,8 +1,9 @@
 /*
  * Seidel.hpp
  *
-*  Created: Aug 31, 2014
- * Author:  Andre Zunino <neyzunino@gmail.com>
+ * Created:  Aug 31, 2014
+ * Modified: May 16, 2019
+ * Author:   Andre Zunino <neyzunino@gmail.com>
  */
 
 #ifndef SEIDEL_HPP
@@ -12,6 +13,7 @@
 
 #include "SDLError.hpp"
 #include "SDL.hpp"
+#include "Random.hpp"
 #include "Window.hpp"
 #include "Texture.hpp"
 #include "Sprite.hpp"
