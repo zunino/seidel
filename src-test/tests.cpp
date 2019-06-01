@@ -6,9 +6,16 @@ extern void testIntTo();
 extern void testFloatFromTo();
 extern void testFloatTo();
 
+extern void testBasicVector();
+extern void testVectorEquality();
+extern void testVectorInequality();
+extern void testVectorPlusEqual();
+extern void testVectorAddition();
+
 int main() {
 
-    std::clog << "=== random-test\n";
+    // RANDOM
+    std::clog << "== [RANDOM]==\n";
 
     std::clog << "\ntestIntFromTo\n";
     testIntFromTo();
@@ -21,6 +28,24 @@ int main() {
 
     std::clog << "\ntestFloatTo\n";
     testFloatTo();
+
+    // VECTOR
+    std::clog << "\n\n== [VECTOR] ==\n";
+
+    std::clog << "\ntestBasicVector\n";
+    testBasicVector();
+
+    std::clog << "\ntestVectorEquality\n";
+    testVectorEquality();
+
+    std::clog << "\ntestVectorInequality\n";
+    testVectorInequality();
+
+    std::clog << "\ntestVectorPlusEqual\n";
+    testVectorPlusEqual();
+
+    std::clog << "\ntestVectorAddition\n";
+    testVectorAddition();
 
 }
 
