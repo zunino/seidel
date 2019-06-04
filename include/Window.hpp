@@ -1,14 +1,16 @@
 /*
  * Window.hpp
  *
-*  Created: Aug 31, 2014
- * Author:  Andre Zunino <neyzunino@gmail.com>
+ * Created 31 August 2014
+ * Last modified 4 June 2019
+ *
+ * Andre Zunino <neyzunino@gmail.com>
  */
 
 #ifndef SEIDEL_WINDOW_HPP
 #define SEIDEL_WINDOW_HPP
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 namespace sdl {
 

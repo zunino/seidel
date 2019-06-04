@@ -1,8 +1,10 @@
 /*
  * Sprite.hpp
  *
-*  Created: Aug 31, 2014
- * Author:  Andre Zunino <neyzunino@gmail.com>
+ * Created 31 August 2014
+ * Last modified 4 June 2019
+ *
+ * Andre Zunino <neyzunino@gmail.com>
  */
 
 #ifndef SEIDEL_SPRITE_HPP
@@ -11,7 +13,7 @@
 #include <map>
 #include <string>
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 namespace sdl {
 

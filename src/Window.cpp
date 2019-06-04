@@ -1,9 +1,10 @@
 /*
  * Window.cpp
  *
- * Created:  Aug 31, 2014
- * Modified: Aug 3, 2015
- * Author:   Andre Zunino <neyzunino@gmail.com>
+ * Created 31 August 2014
+ * Last modified 4 June 2019
+ *
+ * Andre Zunino <neyzunino@gmail.com>
  */
 
 #include "Window.hpp"
@@ -21,12 +22,13 @@ namespace sdl {
 
     Window::Window(const char* title, int x, int y, int w, int h, Uint32 flags)
             : sdlRenderer(nullptr) {
-        sdlWindow = SDL_CreateWindow(title,
-                                SDL_WINDOWPOS_UNDEFINED,
-                                SDL_WINDOWPOS_UNDEFINED,
-                                w,
-                                h,
-                                SDL_WINDOW_RESIZABLE);
+        sdlWindow = SDL_CreateWindow(
+                title,
+                SDL_WINDOWPOS_UNDEFINED,
+                SDL_WINDOWPOS_UNDEFINED,
+                w,
+                h,
+                SDL_WINDOW_RESIZABLE);
         if (sdlWindow == nullptr) {
             throw SDLError();
         }

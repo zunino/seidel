@@ -1,12 +1,13 @@
 /*
  * Texture.cpp
  *
- * Created:  Aug 31, 2014
- * Modified: Aug 3, 2015
- * Author:   Andre Zunino <neyzunino@gmail.com>
+ * Created 31 August 2014
+ * Last modified 4 June 2019
+ *
+ * Andre Zunino <neyzunino@gmail.com>
  */
 
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 #include "Texture.hpp"
 #include "SDLError.hpp"

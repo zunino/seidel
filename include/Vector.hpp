@@ -5,7 +5,7 @@
  * velocity, acceleration etc.
  *
  * Created 1 June 2019
- * Last modified 1 June 2019
+ * Last modified 4 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */

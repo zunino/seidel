@@ -4,7 +4,7 @@ LIB_VER    = 0.4.0
 LIB_FILE   = bin/$(LIB_NAME)-$(LIB_VER).a
 
 CC         = g++
-CFLAGS     = -std=c++1z -c -Wall -g -I/usr/include/SDL2 -D_REENTRANT -I./include
+CFLAGS     = -std=c++1z -c -Wall -g -D_REENTRANT -Iinclude
 LDFLAGS    = -L/usr/lib/x86_64-linux-gnu -lSDL2 -lSDL2_image -lSDL2_ttf
 
 UNITS      = Seidel SDLError SDL Window Texture Sprite Clock Random Vector
