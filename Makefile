@@ -1,14 +1,14 @@
 LIB_DESC   = Seidel - Simple SDL Wrapper
 LIB_NAME   = seidel
-LIB_VER    = 0.4.0
+LIB_VER    = 0.5.0
 LIB_FILE   = bin/$(LIB_NAME)-$(LIB_VER).a
 
 CC         = g++
 CFLAGS     = -std=c++1z -c -Wall -g -D_REENTRANT -Iinclude
 LDFLAGS    = -L/usr/lib/x86_64-linux-gnu -lSDL2 -lSDL2_image -lSDL2_ttf
 
-UNITS      = Seidel SDLError SDL Window Texture Sprite Clock Random Vector
-TEST_UNITS = tests random-test vector-test
+UNITS      = Seidel SDLError SDL Window Texture Sprite Clock Random Vector CollisionBox
+TEST_UNITS = tests random-test vector-test collision-test
 
 OBJ       := $(addsuffix .o, $(addprefix bin/, $(UNITS)))
 OBJ_TEST  := $(addsuffix .o, $(addprefix bin-test/, $(TEST_UNITS)))
