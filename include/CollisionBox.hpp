@@ -9,7 +9,7 @@
  * Andre Zunino <neyzunino@gmail.com>
  */
 
-#ifndef AZ_COLLISION_BOX__HPP
+#ifndef AZ_COLLISION_BOX_HPP
 #define AZ_COLLISION_BOX_HPP
 
 #include "Vector.hpp"
