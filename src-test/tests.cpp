@@ -14,6 +14,8 @@ extern void testVectorAddition();
 
 extern void testCollisions();
 
+extern void testUtils();
+
 int main() {
 
     // RANDOM
@@ -53,5 +55,10 @@ int main() {
     std::clog << "\n\n== [COLLISION] ==\n";
 
     testCollisions();
+
+    // UTILS
+    std::clog << "\n\n== [UTILS] ==\n";
+
+    testUtils();
 }
 
