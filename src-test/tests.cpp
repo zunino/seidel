@@ -16,6 +16,8 @@ extern void testCollisions();
 
 extern void testUtils();
 
+extern void testExtractMainColors();
+
 int main() {
 
     // RANDOM
@@ -60,5 +62,10 @@ int main() {
     std::clog << "\n\n== [UTILS] ==\n";
 
     testUtils();
+
+    // TEXTURE
+    std::clog << "\n\n== [TEXTURE] ==\n";
+
+    testExtractMainColors();
 }
 
