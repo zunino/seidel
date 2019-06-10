@@ -1,12 +1,8 @@
 #include <iostream>
+#include <cassert>
 
 #include "Vector.hpp"
 using sdl::Vector;
-
-std::ostream& operator<<(std::ostream& out, const sdl::Vector& v) {
-    out << '(' << v.x << ", " << v.y << ')';
-    return out;
-}
 
 void testBasicVector() {
     Vector v {3, 4};
@@ -64,11 +60,26 @@ void testVectorAddition() {
     std::clog << "v3 " << v3 << '\n';
 }
 
+void testVectorMagnitude() {
+    Vector v1 {3, 4};
+    float magnitude1 = v1.mag();
+    std::clog << "Magnitude of v1 " << v1 << " = " << magnitude1;
+    assert(magnitude1 == 5.0f);
+    std::clog << " OK" << '\n';
+
+    Vector v2 {-5, 7};
+    float magnitude2 = v2.mag();
+    std::clog << "Magnitude of v2 " << v2 << " = " << magnitude2;
+    //assert(magnitude2 == f);
+    std::clog << " OK" << '\n';
+}
+
 void testVector() {
     testBasicVector();
     testVectorEquality();
     testVectorInequality();
     testVectorPlusEqual();
     testVectorAddition();
+    testVectorMagnitude();
 }
 

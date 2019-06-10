@@ -13,6 +13,8 @@
 #ifndef SEIDEL_VECTOR_HPP
 #define SEIDEL_VECTOR_HPP
 
+#include <iostream>
+
 namespace sdl {
 
     struct Vector {
@@ -20,9 +22,12 @@ namespace sdl {
         Vector& operator+=(const Vector& rhs);
         bool operator==(const Vector& rhs) const;
         bool operator!=(const Vector& rhs) const;
+        float mag() const;
         float x;
         float y;
     };
+
+    std::ostream& operator<<(std::ostream& out, const sdl::Vector& v);
 
 }
 

@@ -10,9 +10,16 @@
  * Andre Zunino <neyzunino@gmail.com>
  */
 
+#include <cmath>
+
 #include "Vector.hpp"
 
 namespace sdl {
+
+    std::ostream& operator<<(std::ostream& out, const sdl::Vector& v) {
+        out << '(' << v.x << ", " << v.y << ')';
+        return out;
+    }
 
     Vector Vector::operator+(const Vector& rhs) const {
         return Vector {x + rhs.x, y + rhs.y};
@@ -30,6 +37,10 @@ namespace sdl {
 
     bool Vector::operator!=(const Vector& rhs) const {
         return !(*this == rhs);
+    }
+
+    float Vector::mag() const {
+        return std::hypot(x, y);
     }
 
 }
