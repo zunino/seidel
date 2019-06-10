@@ -34,3 +34,10 @@ void testFloatTo() {
     std::clog << "num: " << num << '\n';
 }
 
+void testRandom() {
+    testIntFromTo();
+    testIntTo();
+    testFloatFromTo();
+    testFloatTo();
+}
+

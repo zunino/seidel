@@ -64,3 +64,11 @@ void testVectorAddition() {
     std::clog << "v3 " << v3 << '\n';
 }
 
+void testVector() {
+    testBasicVector();
+    testVectorEquality();
+    testVectorInequality();
+    testVectorPlusEqual();
+    testVectorAddition();
+}
+
