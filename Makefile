@@ -1,6 +1,6 @@
 LIB_DESC   = Seidel - Simple SDL Wrapper
 LIB_NAME   = seidel
-LIB_VER    = 0.6.0
+LIB_VER    = 0.7.0
 LIB_FILE   = bin/$(LIB_NAME)-$(LIB_VER).a
 
 CC         = g++
