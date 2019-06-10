@@ -1,6 +1,10 @@
 #include <iostream>
 using std::clog;
 
+#include <string>
+#include <vector>
+#include <list>
+
 #include <cassert>
 
 #include "Utils.hpp"
@@ -23,7 +27,17 @@ void testClamp() {
     clog << "OK\n";
 }
 
+void testRandomElement() {
+    std::vector<std::string> names = {"John", "Mary", "Peter", "Robinson", "Trevor"};
+    std::string name = sdl::randomElement(names);
+    clog << "Random name: " << name << '\n';
+    std::list<int> nums = {10, 6, 12, 4, 1, 27, 18, 33};
+    int num = sdl::randomElement(nums);
+    clog << "Random num: " << num << '\n';
+}
+
 void testUtils() {
     testClamp();
+    testRandomElement();
 }
 

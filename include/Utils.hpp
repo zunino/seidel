@@ -4,13 +4,17 @@
  * General utilities.
  *
  * Created 8 June 2019
- * Last modified 8 June 2019
+ * Last modified 9 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
 
 #ifndef SEIDEL_UTILS_HPP
 #define SEIDEL_UTILS_HPP
+
+#include <iterator>
+
+#include "Random.hpp"
 
 namespace sdl {
 
@@ -23,6 +27,17 @@ namespace sdl {
         } else {
             return value;
         }
+    }
+
+    // Template template parameter
+    template <template <typename...> typename Coll, typename E>
+    const E& randomElement(const Coll<E>& collection) {
+        int size = collection.size();
+        if (size > 0) --size;
+        int offset = random(size);
+        auto iter = std::begin(collection);
+        std::advance(iter, offset);
+        return *iter;
     }
 
 }
