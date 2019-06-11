@@ -22,9 +22,11 @@ namespace sdl {
         Vector& operator+=(const Vector& rhs);
         bool operator==(const Vector& rhs) const;
         bool operator!=(const Vector& rhs) const;
+        Vector operator-() const;
         float mag() const;
-        float x;
-        float y;
+        Vector unit() const;
+        float x = 0.0f;
+        float y = 0.0f;
     };
 
     std::ostream& operator<<(std::ostream& out, const sdl::Vector& v);

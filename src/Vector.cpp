@@ -39,8 +39,20 @@ namespace sdl {
         return !(*this == rhs);
     }
 
+    Vector Vector::operator-() const {
+        return Vector {-x, -y};
+    }
+
     float Vector::mag() const {
         return std::hypot(x, y);
+    }
+
+    Vector Vector::unit() const {
+        float magnitude = mag();
+        return Vector {
+            x / magnitude,
+            y / magnitude
+        };
     }
 
 }

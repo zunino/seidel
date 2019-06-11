@@ -4,6 +4,12 @@
 #include "Vector.hpp"
 using sdl::Vector;
 
+const float EPSILON = 0.01f;
+
+bool roughlyEqual(float a, float b, float epsilon = EPSILON) {
+    return a - b < epsilon;
+}
+
 void testBasicVector() {
     Vector v {3, 4};
     if (v.x != 3 || v.y != 4) {
@@ -63,15 +69,40 @@ void testVectorAddition() {
 void testVectorMagnitude() {
     Vector v1 {3, 4};
     float magnitude1 = v1.mag();
-    std::clog << "Magnitude of v1 " << v1 << " = " << magnitude1;
+    std::clog << "|v1 " << v1 << "| = " << magnitude1;
     assert(magnitude1 == 5.0f);
     std::clog << " OK" << '\n';
 
     Vector v2 {-5, 7};
     float magnitude2 = v2.mag();
-    std::clog << "Magnitude of v2 " << v2 << " = " << magnitude2;
-    //assert(magnitude2 == f);
+    std::clog << "|v2 " << v2 << "| = " << magnitude2;
+    assert(roughlyEqual(magnitude2, 8.6f));
     std::clog << " OK" << '\n';
+}
+
+void testVectorUnaryMinus() {
+    Vector v1 {8, -6};
+    Vector result = -v1;
+    std::clog << "v1 " << v1 << "; -v1 = " << result << '\n';
+    Vector expected = {-8, 6};
+    assert(result == expected);
+}
+
+void testUnitVector() {
+    Vector v1 {3, 5};
+    Vector expected {0.514f, 0.857f};
+    Vector result = v1.unit();
+    std::clog << "v1 " << v1 << "; unit(v1) = " << result << '\n';
+    assert(roughlyEqual(result.x, expected.x));
+    assert(roughlyEqual(result.y, expected.y));
+}
+
+void testDefaultVector() {
+    Vector v;
+    std::clog << "v " << v << " should be (0, 0)";
+    assert(v.x == 0.0f);
+    assert(v.y == 0.0f);
+    std::clog << " OK\n";
 }
 
 void testVector() {
@@ -81,5 +112,8 @@ void testVector() {
     testVectorPlusEqual();
     testVectorAddition();
     testVectorMagnitude();
+    testVectorUnaryMinus();
+    testUnitVector();
+    testDefaultVector();
 }
 
