@@ -25,9 +25,30 @@ namespace sdl {
         return Vector {x + rhs.x, y + rhs.y};
     }
 
+    Vector Vector::operator-(const Vector& rhs) const {
+        return Vector {x - rhs.x, y - rhs.y};
+    }
+
+    Vector Vector::operator*(int scalar) const {
+        return *this * float(scalar);
+    }
+
+    Vector Vector::operator*(float scalar) const {
+        return Vector {
+            x * scalar,
+            y * scalar
+        };
+    }
+
     Vector& Vector::operator+=(const Vector& rhs) {
         x += rhs.x;
         y += rhs.y;
+        return *this;
+    }
+
+    Vector& Vector::operator-=(const Vector& rhs) {
+        x -= rhs.x;
+        y -= rhs.y;
         return *this;
     }
 
@@ -53,6 +74,14 @@ namespace sdl {
             x / magnitude,
             y / magnitude
         };
+    }
+
+    Vector operator*(int scalar, const Vector& rhs) {
+        return rhs * scalar;
+    }
+
+    Vector operator*(float scalar, const Vector& rhs) {
+        return rhs * scalar;
     }
 
 }

@@ -41,29 +41,20 @@ void testVectorInequality() {
 void testVectorPlusEqual() {
     Vector v1 {3, 4};
     Vector v2 {2, 4};
-    std::clog << "v1 " << v1 << '\n';
-    std::clog << "v2 " << v2 << '\n';
+    std::clog << "v1 " << v1 << " += v2 " << v2;
     v1 += v2;
-    std::clog << "v1 += v2\n";
-    Vector vexpected {5, 8};
-    if (!(v1 == vexpected)) {
-        std::cerr << "Wrong resulting vector from plus-equal operation";
-    }
-    std::clog << "v1 " << v1 << '\n';
+    Vector expected {5, 8};
+    std::clog << " => v1 = " << v1 << '\n';
+    assert(v1 == expected);
 }
 
 void testVectorAddition() {
     Vector v1 {3, 4};
     Vector v2 {2, 4};
-    std::clog << "v1 " << v1 << '\n';
-    std::clog << "v2 " << v2 << '\n';
     Vector v3 = v1 + v2;
-    std::clog << "v3 = v1 + v2\n";
-    Vector vexpected {5, 8};
-    if (!(v3 == vexpected)) {
-        std::cerr << "Wrong resulting vector from addition operation";
-    }
-    std::clog << "v3 " << v3 << '\n';
+    Vector expected {5, 8};
+    std::clog << "v1 " << v1 << " + v2 " << v2 << " = " << v3 << '\n';
+    assert(v3 == expected);
 }
 
 void testVectorMagnitude() {
@@ -105,6 +96,53 @@ void testDefaultVector() {
     std::clog << " OK\n";
 }
 
+void testVectorSubtraction() {
+    Vector v1 {3, 4};
+    Vector v2 {2, 4};
+    Vector v3 = v1 - v2;
+    Vector expected {1, 0};
+    std::clog << "v1 " << v1 << " - v2 " << v2 << " = " << v3 << '\n';
+    assert(v3 == expected);
+}
+
+void testVectorMinusEqual() {
+    Vector v1 {3, 4};
+    Vector v2 {2, 4};
+    std::clog << "v1 " << v1 << " -= v2 " << v2;
+    v1 -= v2;
+    Vector expected {1, 0};
+    std::clog << " => v1 = " << v1 << '\n';
+    assert(v1 == expected);
+}
+
+void testVectorScalarMultiplication() {
+    Vector v1 {3, 5};
+    Vector expected1 {12, 20};
+    Vector result1 = v1 * 4;
+    std::clog << "v1 " << v1 << " * 4 = " << result1 << '\n';
+    assert(result1 == expected1);
+
+    Vector v2 {4, 7};
+    Vector expected2 {10, 17.5f};
+    Vector result2 = v2 * 2.5f;
+    std::clog << "v2 " << v2 << " * 2.5f = " << result2 << '\n';
+    assert(result2 == expected2);
+}
+
+void testVectorScalarMultiplicationNonMember() {
+    Vector v1 {5, -6};
+    Vector expected1 {10, -12};
+    Vector result1 = 2 * v1;
+    std::clog << "2 * v1 " << v1 << " = " << result1 << '\n';
+    assert(result1 == expected1);
+
+    Vector v2 {-3, 9};
+    Vector expected2 {-7.5f, 22.5f};
+    Vector result2 = 2.5f * v2;
+    std::clog << "2.5f * v2 " << v2 << " = " << result2 << '\n';
+    assert(result2 == expected2);
+}
+
 void testVector() {
     testBasicVector();
     testVectorEquality();
@@ -115,5 +153,9 @@ void testVector() {
     testVectorUnaryMinus();
     testUnitVector();
     testDefaultVector();
+    testVectorSubtraction();
+    testVectorMinusEqual();
+    testVectorScalarMultiplication();
+    testVectorScalarMultiplicationNonMember();
 }
 
