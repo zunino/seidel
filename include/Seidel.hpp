@@ -2,7 +2,7 @@
  * Seidel.hpp
  *
  * Created 31 August 2014
- * Last modified 4 June 2019
+ * Last modified 12 June 2019
  * 
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -20,5 +20,7 @@
 #include "Sprite.hpp"
 #include "Clock.hpp"
 #include "Vector.hpp"
+#include "Utils.hpp"
+#include "Text.hpp"
 
 #endif
