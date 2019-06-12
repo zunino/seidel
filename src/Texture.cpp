@@ -2,18 +2,18 @@
  * Texture.cpp
  *
  * Created 31 August 2014
- * Last modified 8 June 2019
+ * Last modified 12 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
 
-#include <iostream>
 #include <map>
 #include <set>
 
 #include <SDL2/SDL_image.h>
 
 #include "Texture.hpp"
+#include "Utils.hpp"
 #include "SDLError.hpp"
 
 bool operator==(const SDL_Color& lhs, const SDL_Color& rhs) {
@@ -27,11 +27,6 @@ bool operator<(const SDL_Color& lhs, const SDL_Color& rhs) {
     int lhsDword = (lhs.r << 24) + (lhs.g << 16) + (lhs.b << 8) + lhs.a;
     int rhsDword = (rhs.r << 24) + (rhs.g << 16) + (rhs.b << 8) + rhs.a;
     return lhsDword < rhsDword;
-}
-
-std::ostream& operator<<(std::ostream& os, const SDL_Color& c) {
-    return os << '[' << int(c.r) << ", " << int(c.g) << ", " << int(c.b)
-              << ", " << int(c.a) << ']';
 }
 
 namespace sdl {
@@ -93,7 +88,6 @@ namespace sdl {
             histogram[color]++;
         }
         SDL_UnlockSurface(surface);
-        std::clog << "Color histogram with " << histogram.size() << " entries\n";
         std::set<std::pair<SDL_Color, int>, ColorHistComp> sortedHistogram(
                 std::make_move_iterator(std::begin(histogram)),
                 std::make_move_iterator(std::end(histogram)));

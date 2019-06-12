@@ -4,7 +4,7 @@
  * General utilities.
  *
  * Created 8 June 2019
- * Last modified 9 June 2019
+ * Last modified 12 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -12,7 +12,10 @@
 #ifndef SEIDEL_UTILS_HPP
 #define SEIDEL_UTILS_HPP
 
+#include <iostream>
 #include <iterator>
+
+#include <SDL2/SDL_pixels.h>
 
 #include "Random.hpp"
 
@@ -41,6 +44,8 @@ namespace sdl {
     }
 
 }
+
+std::ostream& operator<<(std::ostream& os, const SDL_Color& c);
 
 #endif
 
