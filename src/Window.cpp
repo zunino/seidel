@@ -2,7 +2,7 @@
  * Window.cpp
  *
  * Created 31 August 2014
- * Last modified 4 June 2019
+ * Last modified 12 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -28,7 +28,7 @@ namespace sdl {
                 SDL_WINDOWPOS_UNDEFINED,
                 w,
                 h,
-                SDL_WINDOW_RESIZABLE);
+                0);
         if (sdlWindow == nullptr) {
             throw SDLError();
         }

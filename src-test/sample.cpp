@@ -13,7 +13,8 @@ namespace {
 
 class Toon {
     public:
-        Toon(sdl::Clock& clock, sdl::Sprite&& sprite) : x{0}, y{0}, z{1.0f}, clock{clock}, sprite{sprite} {}
+        Toon(sdl::Clock& clock, sdl::Sprite&& sprite)
+            : x{0}, y{0}, z{1.0f}, clock{clock}, sprite{std::move(sprite)} {}
         std::tuple<float, float> position() const { return std::make_tuple(x, y); }
         void setPosition(float x, float y) { this->x = x; this->y = y; update(); }
         void update() {
@@ -53,14 +54,15 @@ int main() {
         Clock clock {60_fps};
 
         Toon toon1 {clock, Sprite {texture, TOON_SPRITE_WIDTH *  4, 0, TOON_SPRITE_WIDTH, TOON_SPRITE_HEIGHT, 4, 3.5f}};
-		Toon toon2 {clock, Sprite {texture, TOON_SPRITE_WIDTH *  8, 0, TOON_SPRITE_WIDTH, TOON_SPRITE_HEIGHT, 4, 7.0f}};
+	Toon toon2 {clock, Sprite {texture, TOON_SPRITE_WIDTH *  8, 0, TOON_SPRITE_WIDTH, TOON_SPRITE_HEIGHT, 4, 7.0f}};
         Toon toon3 {clock, Sprite {texture, TOON_SPRITE_WIDTH * 12, 0, TOON_SPRITE_WIDTH, TOON_SPRITE_HEIGHT, 4, 3.5f}};
 
-		float xpos = (WINDOW_WIDTH - (2 * TOON_SPRITE_WIDTH + 2 * TOON_SPRITE_PADDING)) / 2.0f;
-		float ypos = WINDOW_HEIGHT / 2.0f;
+	float xpos = (WINDOW_WIDTH - (2 * TOON_SPRITE_WIDTH + 2 * TOON_SPRITE_PADDING)) / 2.0f;
+	float ypos = WINDOW_HEIGHT / 2.0f;
+
         toon1.setPosition(xpos, ypos);
-		toon2.setPosition(xpos + TOON_SPRITE_WIDTH + TOON_SPRITE_PADDING, ypos);
-		toon3.setPosition(xpos + 2 * TOON_SPRITE_WIDTH + 2* TOON_SPRITE_PADDING, ypos);
+	toon2.setPosition(xpos + TOON_SPRITE_WIDTH + TOON_SPRITE_PADDING, ypos);
+	toon3.setPosition(xpos + 2 * TOON_SPRITE_WIDTH + 2* TOON_SPRITE_PADDING, ypos);
 
         bool quit = false;
         SDL_Event event;

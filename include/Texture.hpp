@@ -2,7 +2,7 @@
  * Texture.hpp
  *
  * Created 31 August 2014
- * Last modified 8 June 2019
+ * Last modified 12 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -29,6 +29,7 @@ namespace sdl {
         public:
             Texture(SDL_Renderer* const renderer, const std::string& fileName);
             Texture(SDL_Renderer* const renderer, SDL_Surface* const surface);
+            Texture(const Texture&) = delete;
             ~Texture();
             SDL_Renderer* renderer() { return sdlRenderer; }
             operator SDL_Texture*() { return sdlTexture; }

@@ -2,7 +2,7 @@
  * Sprite.cpp
  *
  * Created 31 August 2014
- * Last modified 4 June 2019
+ * Last modified 12 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -13,11 +13,11 @@
 namespace sdl {
 
     Sprite::Sprite(Texture& texture, int tx, int ty, int fw, int fh, int fcount, float fps)
-        : Sprite {texture, tx, ty, fw, fh, fcount, fps, 0} {
+            : Sprite {texture, tx, ty, fw, fh, fcount, fps, 0} {
     }
 
     Sprite::Sprite(Texture& texture, int tx, int ty, int fw, int fh, int fcount, float fps, int initialFrame)
-        : texture{texture}, zoomFactor{1.0f} {
+            : texture{texture}, zoomFactor{1.0f} {
         animationName = Animation::DEFAULT_ANIMATION_NAME;
         animations.insert(
             make_pair(
