@@ -22,5 +22,6 @@
 #include "Vector.hpp"
 #include "Utils.hpp"
 #include "Text.hpp"
+#include "Audio.hpp"
 
 #endif
