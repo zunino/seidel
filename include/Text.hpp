@@ -19,6 +19,7 @@ namespace sdl {
 
     struct Font final {
         Font(const char* const name, int size);
+        Font(const Font& font) = delete;
         ~Font();
         operator TTF_Font*() const;
     private:
@@ -38,7 +39,7 @@ namespace sdl {
     struct Text final {
         Text(SDL_Renderer* renderer);
         ~Text();
-        Writer writer(Font& font, const SDL_Color& color);
+        Writer writer(Font& font, const SDL_Color& color) const;
     private:
         SDL_Renderer* renderer;
     };

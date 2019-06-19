@@ -50,9 +50,8 @@ namespace sdl {
 
     Text::Text(SDL_Renderer* renderer)
             : renderer(renderer) {
-        TTF_Init();
-        if (TTF_Init() < 0) {
-            throw "Could not initialize TTF library";
+        if (TTF_Init() != 0) {
+            throw SDLError("Could not initialize TTF library");
         }
     }
 
@@ -60,8 +59,8 @@ namespace sdl {
         TTF_Quit();
     }
 
-    Writer Text::writer(Font& font, const SDL_Color& color) {
-        return Writer {this->renderer, font, color};
+    Writer Text::writer(Font& font, const SDL_Color& color) const {
+        return Writer {renderer, font, color};
     }
 
 }

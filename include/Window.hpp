@@ -2,7 +2,7 @@
  * Window.hpp
  *
  * Created 31 August 2014
- * Last modified 4 June 2019
+ * Last modified 12 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -20,6 +20,7 @@ namespace sdl {
             Window(const char* title, int w, int h);
             Window(const char* title, int w, int h, Uint32 flags);
             Window(const char* title, int x, int y, int w, int h, Uint32 flags);
+            Window(const Window&) = delete;
             virtual ~Window();
 
             SDL_Renderer* renderer();

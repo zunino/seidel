@@ -2,7 +2,7 @@
  * Sprite.hpp
  *
  * Created 31 August 2014
- * Last modified 4 June 2019
+ * Last modified 12 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -65,11 +65,13 @@ namespace sdl {
             void zoom(float z) { zoomFactor = z; }
 
         private:
+            void updateRects();
+
+        private:
             Texture& texture;
             std::map<std::string, Animation> animations;
             std::string animationName;
             float zoomFactor;
-            void updateRects();
             SDL_Rect src;
             SDL_Rect dst;
 
