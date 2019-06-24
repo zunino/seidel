@@ -2,7 +2,7 @@
  * Text.cpp
  *
  * Created 12 June 2019
- * Last modified 12 June 2019
+ * Last modified 23 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -14,8 +14,8 @@ namespace sdl {
 
     // FONT
 
-    Font::Font(const char* const filespec, int size) {
-        font = TTF_OpenFont(filespec, size);
+    Font::Font(std::string_view filespec, int size) {
+        font = TTF_OpenFont(filespec.data(), size);
         if (!font) {
             throw SDLError("Error opening TTF font");
         }
@@ -35,11 +35,11 @@ namespace sdl {
             : renderer(renderer), font(font), color(color) {
     }
 
-    void Writer::write(const char* const text, int x, int y) const {
+    void Writer::write(std::string_view text, int x, int y) const {
         int w, h;
-        TTF_SizeText(font, text, &w, &h);
+        TTF_SizeText(font, text.data(), &w, &h);
         SDL_Rect dstRect {x, y, w, h};
-        SDL_Surface* surface = TTF_RenderText_Solid(font, text, color);
+        SDL_Surface* surface = TTF_RenderText_Solid(font, text.data(), color);
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
         SDL_RenderCopy(renderer, texture, NULL, &dstRect);
         SDL_DestroyTexture(texture);

@@ -2,13 +2,15 @@
  * Text.hpp
  *
  * Created 12 June 2019
- * Last modified 12 June 2019
+ * Last modified 23 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
 
 #ifndef SEIDEL_TEXT_HPP
 #define SEIDEL_TEXT_HPP
+
+#include <string_view>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -18,7 +20,7 @@ namespace sdl {
     struct Text;
 
     struct Font final {
-        Font(const char* const name, int size);
+        Font(std::string_view name, int size);
         Font(const Font& font) = delete;
         ~Font();
         operator TTF_Font*() const;
@@ -28,7 +30,7 @@ namespace sdl {
 
     struct Writer {
         friend struct Text;
-        void write(const char* const text, int x, int y) const;
+        void write(std::string_view text, int x, int y) const;
     private:
         Writer(SDL_Renderer* renderer, Font& font, const SDL_Color& color);
         SDL_Renderer* renderer;

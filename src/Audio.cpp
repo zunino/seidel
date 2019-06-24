@@ -2,7 +2,7 @@
  * Audio.cpp
  *
  * Created 18 June 2019
- * Last modified 18 June 2019
+ * Last modified 23 June 2019
  *
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -47,8 +47,8 @@ namespace sdl {
 
     // MUSIC
 
-    Music::Music(const char* const fileSpec) {
-        music = Mix_LoadMUS(fileSpec);
+    Music::Music(std::string_view fileSpec) {
+        music = Mix_LoadMUS(fileSpec.data());
         if (!music) {
             throw SDLError("Error loading music file");
         }
@@ -83,8 +83,8 @@ namespace sdl {
     }
 
     // SFX
-    Sfx::Sfx(const char* const fileSpec) {
-        sfx = Mix_LoadWAV(fileSpec);
+    Sfx::Sfx(std::string_view fileSpec) {
+        sfx = Mix_LoadWAV(fileSpec.data());
         if (!sfx) {
             throw SDLError("Error loading sfx file");
         }
