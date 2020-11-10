@@ -2,7 +2,7 @@
  * Seidel.hpp
  *
  * Created 31 August 2014
- * Last modified 12 June 2019
+ * Last modified 6 November 2020
  * 
  * Andre Zunino <neyzunino@gmail.com>
  */
@@ -23,5 +23,6 @@
 #include "Utils.hpp"
 #include "Text.hpp"
 #include "Audio.hpp"
+#include "Timer.hpp"
 
 #endif
