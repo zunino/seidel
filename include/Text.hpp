@@ -31,8 +31,11 @@ namespace sdl {
     struct Writer {
         friend struct Text;
         void write(std::string_view text, int x, int y) const;
+        void writeShaded(std::string_view text, int x, int y, const SDL_Color& bgColor) const;
+        void writeBlended(std::string_view text, int x, int y) const;
     private:
         Writer(SDL_Renderer* renderer, Font& font, const SDL_Color& color);
+        void write_(SDL_Surface* textSurface, std::string_view text, int x, int y) const;
         SDL_Renderer* renderer;
         Font& font;
         SDL_Color color;

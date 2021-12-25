@@ -35,15 +35,29 @@ namespace sdl {
             : renderer(renderer), font(font), color(color) {
     }
 
-    void Writer::write(std::string_view text, int x, int y) const {
+    void Writer::write_(SDL_Surface* surface, std::string_view text, int x, int y) const {
         int w, h;
         TTF_SizeText(font, text.data(), &w, &h);
-        SDL_Rect dstRect {x, y, w, h};
-        SDL_Surface* surface = TTF_RenderText_Solid(font, text.data(), color);
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+        SDL_FreeSurface(surface);
+        SDL_Rect dstRect {x, y, w, h};
         SDL_RenderCopy(renderer, texture, NULL, &dstRect);
         SDL_DestroyTexture(texture);
-        SDL_FreeSurface(surface);
+    }
+
+    void Writer::write(std::string_view text, int x, int y) const {
+        SDL_Surface* surface = TTF_RenderText_Solid(font, text.data(), color);
+        write_(surface, text, x, y);
+    }
+
+    void Writer::writeShaded(std::string_view text, int x, int y, const SDL_Color& bgColor) const {
+        SDL_Surface* surface = TTF_RenderText_Shaded(font, text.data(), color, bgColor);
+        write_(surface, text, x, y);
+    }
+
+    void Writer::writeBlended(std::string_view text, int x, int y) const {
+        SDL_Surface* surface = TTF_RenderText_Blended(font, text.data(), color);
+        write_(surface, text, x, y);
     }
 
     // TEXT
