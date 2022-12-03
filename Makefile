@@ -1,6 +1,6 @@
 LIB_DESC   = Seidel - Simple SDL Wrapper
 LIB_NAME   = seidel
-LIB_VER    = 0.12.0
+LIB_VER    = 0.12.1
 LIB_FILE   = bin/$(LIB_NAME)-$(LIB_VER).a
 
 CC         = g++
@@ -34,6 +34,9 @@ bin/%.o: src/%.cpp
 
 bin-test/%.o: src-test/%.cpp
 	$(CC) $(CFLAGS) -o $@ $<
+
+run-tests: tests
+	bin-test/tests
 
 setup:
 	@mkdir -p bin bin-test 2> /dev/null

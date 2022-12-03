@@ -18,6 +18,14 @@ void testIntTo() {
     std::clog << "num: " << num << '\n';
 }
 
+void testIntFromToInvertedArgs() {
+    int num = sdl::random(20, 10);
+    if (num < 10 || num > 20) {
+        std::cerr << "Generated random int out of expected range: " << num << '\n';
+    }
+    std::clog << "num: " << num << '\n';
+}
+
 void testFloatFromTo() {
     float num = sdl::random(10.0f, 20.0f);
     if (num < 10.0f || num > 20.0f) {
@@ -34,10 +42,20 @@ void testFloatTo() {
     std::clog << "num: " << num << '\n';
 }
 
+void testFloatFromToInvertedArgs() {
+    float num = sdl::random(20.0f, 10.0f);
+    if (num < 10.0f || num > 20.0f) {
+        std::cerr << "Generated random float out of expected range: " << num << '\n';
+    }
+    std::clog << "num: " << num << '\n';
+}
+
 void testRandom() {
     testIntFromTo();
     testIntTo();
+    testIntFromToInvertedArgs();
     testFloatFromTo();
     testFloatTo();
+    testFloatFromToInvertedArgs();
 }
 
