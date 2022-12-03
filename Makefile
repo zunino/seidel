@@ -16,6 +16,8 @@ OBJ_TEST  := $(addsuffix .o, $(addprefix bin-test/, $(TEST_UNITS)))
 SRC       := $(addsuffix .cpp, $(addprefix src/, $(UNITS)))
 SRC_TEST  := $(addsuffix .cpp, $(addprefix src-test/, $(TEST_UNITS)))
 
+DIST_DIR  = dist/seidel-$(LIB_VER)
+
 seidel: setup $(LIB_FILE)
 
 $(LIB_FILE): $(OBJ)
@@ -36,12 +38,20 @@ bin-test/%.o: src-test/%.cpp
 setup:
 	@mkdir -p bin bin-test 2> /dev/null
 
+dist: seidel
+	@mkdir -p $(DIST_DIR)/lib
+	@echo Copying include files to $(DIST_DIR)/include
+	@cp -r include/ $(DIST_DIR)
+	@echo Copying $(LIB_FILE) to $(DIST_DIR)/lib
+	@cp $(LIB_FILE) $(DIST_DIR)/lib
+
 debug:
 	@echo "SRC:      $(SRC)"
 	@echo "SRC_TEST: $(SRC_TEST)"
 	@echo "OBJ:      $(OBJ)"
 	@echo "OBJ_TEST: $(OBJ_TEST)"
 	@echo "LIB_FILE: $(LIB_FILE)"
+	@echo "DIST_DIR: $(DIST_DIR)"
 
 clean:
 	rm -f bin/*.o
